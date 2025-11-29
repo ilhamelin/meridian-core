@@ -1,0 +1,276 @@
+---
+// src/components/TechShowcase.astro
+
+const projects = [
+    {
+        id: "project-1", // Necesario para identificar qué mostrar
+        name: "Sistema de Email Marketing",
+        techStack: "n8n + Webhooks",
+        description:
+            "Automatización de correos transaccionales recibiendo webhooks desde el frontend.",
+        image: "https://placehold.co/600x400/1e293b/ffffff?text=n8n+Workflow",
+        repoLink: "#",
+        deepLink: "#",
+        type: "n8n",
+        // El código específico que quieres presumir
+        codeSnippet: `// Webhook Handler en n8n (Simulado)
+export const webhookHandler = async (req) => {
+  const { email, type } = req.body;
+  
+  if (!email) throw new Error("Email missing");
+
+  // Lógica de enrutamiento basada en el tipo
+  return type === 'welcome' 
+    ? await sendWelcomeSequence(email)
+    : await addToNewsletter(email);
+};`,
+    },
+    {
+        id: "project-2",
+        name: "Dashboard Corporativo",
+        techStack: "Astro + React Islands",
+        description:
+            "Panel de control de alto rendimiento con hidratación parcial para métricas en tiempo real.",
+        image: "https://placehold.co/600x400/0f172a/ffffff?text=Astro+Dashboard",
+        repoLink: "#",
+        deepLink: "#",
+        type: "astro",
+        codeSnippet: `---
+// Ejemplo de Isla de Astro
+import Chart from '../components/ReactChart.jsx';
+const data = await fetchMetrics();
+---
+<div class="dashboard-grid">
+  <Chart client:visible data={data} />
+  
+  <StaticSidebar />
+</div>`,
+    },
+];
+---
+
+<section class="py-20 px-4 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">
+                Arquitectura & Automatización
+            </h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">
+                Explora la lógica detrás de mis soluciones.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {
+                projects.map((project) => (
+                    <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+                        <div class="relative h-48 overflow-hidden bg-slate-100 group">
+                            <img
+                                src={project.image}
+                                alt={project.name}
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                            />
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                                {project.techStack}
+                            </div>
+                        </div>
+
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">
+                                {project.name}
+                            </h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-1">
+                                {project.description}
+                            </p>
+
+                            {/* Grid de Botones */}
+                            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
+                                {/* Botón 1: Repositorio Principal */}
+                                <a
+                                    href={project.repoLink}
+                                    target="_blank"
+                                    class="col-span-2 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 6 6-6 3-6-3-6-2.5-6-2.5-2 0-2.5.5-3.5 1-3.5 1 2 2.5 2 2.5 2 2.5-2 5-2 5.5-2 6.5 2 8 2 8 2.5 8 5 0 0-2.5 2-3 3 0-4 3-4 6 3 6 6 3 6 3 6 0 0 0-5 5c0 2 1.5 3 2 4" />
+                                    </svg>
+                                    Ver Repositorio
+                                </a>
+
+                                {/* Botón 2: Deep Link (Evidencia Externa) */}
+                                <a
+                                    href={project.deepLink}
+                                    target="_blank"
+                                    class={`flex items-center justify-center gap-2 px-3 py-2 rounded-lg border text-xs font-bold transition ${
+                                        project.type === "n8n"
+                                            ? "border-orange-200 text-orange-700 hover:bg-orange-50"
+                                            : "border-purple-200 text-purple-700 hover:bg-purple-50"
+                                    }`}
+                                >
+                                    {project.type === "n8n"
+                                        ? "Flow ⚡"
+                                        : "Arch 📐"}
+                                </a>
+
+                                {/* Botón 3: Modal (Vista Rápida) */}
+                                <button
+                                    data-code={project.codeSnippet}
+                                    data-title={project.name}
+                                    class="view-code-btn flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition text-xs font-bold"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <>
+                                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </>
+                                    </svg>
+                                    Vista Rápida
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+
+    {/* EL MODAL (Dialog Nativo) */}
+    <dialog
+        id="code-modal"
+        class="m-auto p-0 rounded-xl shadow-2xl backdrop:bg-slate-900/50 backdrop:backdrop-blur-sm w-[90%] max-w-2xl open:animate-fade-in"
+    >
+        <div class="bg-slate-900 text-slate-200 overflow-hidden">
+            {/* Header del Modal */}
+            <div
+                class="flex justify-between items-center p-4 border-b border-slate-700 bg-slate-800"
+            >
+                <h3 id="modal-title" class="font-bold text-white">
+                    Código Fuente
+                </h3>
+                <button
+                    id="close-modal-btn"
+                    class="text-slate-400 hover:text-white transition"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M18 6 6 18"></path><path d="m6 6 12 12"
+                        ></path></svg
+                    >
+                </button>
+            </div>
+
+            {/* Cuerpo con el código */}
+            <div class="p-6 overflow-x-auto bg-[#0d1117]">
+                <pre><code id="modal-content" class="text-sm font-mono text-blue-300 block" /></pre>
+            </div>
+
+            <div
+                class="p-4 bg-slate-800 text-xs text-slate-400 flex justify-between"
+            >
+                <span>Fragmento destacado</span>
+                <span>Read-only</span>
+            </div>
+        </div>
+    </dialog>
+</section>
+
+<script>
+    // Definimos las interfaces o usamos el casting directo
+    const modal = document.getElementById(
+        "code-modal",
+    ) as HTMLDialogElement | null;
+    const modalTitle = document.getElementById("modal-title");
+    const modalContent = document.getElementById("modal-content");
+    const closeBtn = document.getElementById("close-modal-btn");
+    const buttons = document.querySelectorAll(".view-code-btn");
+
+    // "Guard Clause": Si algo esencial falta, detenemos la ejecución.
+    // Esto satisface la queja de "es posiblemente null" eliminando la incertidumbre.
+    if (!modal || !modalTitle || !modalContent || !closeBtn) {
+        console.error(
+            "Error crítico: No se encontraron los elementos del DOM para el modal.",
+        );
+    } else {
+        // Abrir Modal
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                // TypeScript necesita saber que 'btn' es un elemento para acceder a dataset o getAttribute
+                const button = btn as HTMLButtonElement;
+                const code = button.getAttribute("data-code") || "";
+                const title = button.getAttribute("data-title") || "";
+
+                modalTitle.textContent = title;
+                modalContent.textContent = code;
+
+                // Ahora TypeScript sabe que modal es un HTMLDialogElement gracias al casting arriba
+                modal.showModal();
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        // Cerrar Modal (Botón)
+        closeBtn.addEventListener("click", () => {
+            modal.close();
+            document.body.style.overflow = "";
+        });
+
+        // Cerrar Modal (Click fuera)
+        modal.addEventListener("click", (e) => {
+            const dialogDimensions = modal.getBoundingClientRect();
+            if (
+                e.clientX < dialogDimensions.left ||
+                e.clientX > dialogDimensions.right ||
+                e.clientY < dialogDimensions.top ||
+                e.clientY > dialogDimensions.bottom
+            ) {
+                modal.close();
+                document.body.style.overflow = "";
+            }
+        });
+    }
+</script>
+
+<style>
+    /* Animación simple para el modal */
+    dialog[open] {
+        animation: zoom-in 0.2s ease-out;
+    }
+    @keyframes zoom-in {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>

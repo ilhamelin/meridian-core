@@ -1,0 +1,51 @@
+---
+const features = [
+    {
+        title: "Rendimiento Rápido",
+        description:
+            "Optimizado para ofrecer la mejor velocidad y experiencia de usuario.",
+        icon: "🚀",
+    },
+    {
+        title: "Seguridad Total",
+        description:
+            "Protección avanzada para tus datos y los de tus usuarios.",
+        icon: "🔒",
+    },
+    {
+        title: "Escalabilidad",
+        description:
+            "Crece sin límites con una arquitectura diseñada para el futuro.",
+        icon: "📈",
+    },
+];
+---
+
+<section class="py-20 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-slate-900 mb-4">
+                Características Principales
+            </h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                Descubre todo lo que Meridian Core tiene para ofrecerte.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+                features.map((feature) => (
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md duration-300 border border-slate-100 transition-all group/card hover:-translate-y-1">
+                        <div class="text-4xl mb-4">{feature.icon}</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover/card:text-sky-600">
+                            {feature.title}
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed group-hover/card:text-sky-600">
+                            {feature.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

@@ -1,16 +1,45 @@
 ---
-
+import "../styles/global.css";
+import Hero from "../components/Hero.astro";
+import Newsletter from "../components/Newsletter.jsx";
+import Navbar from "../components/Navbar.astro";
+import Features from "../components/Features.astro";
+import TablaCorreos from "../components/TablaCorreos.jsx";
+import TechShowcase from "../components/TechShowcase.astro";
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Meridian Core</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="flex flex-col min-h-screen">
+		<header>
+			<Navbar />
+		</header>
+		<Hero />
+
+		<section class="py-10 px-4">
+			<Newsletter client:visible />
+		</section>
+
+		<section class="py-10 px-4">
+			<Features />
+		</section>
+
+		<section class="py-10 px-4">
+			<TechShowcase />
+		</section>
+		<section class="py-10 px-4">
+			<h1
+				class="flex items-center justify-center text-2xl font-bold mb-4"
+			>
+				Panel de Control
+			</h1>
+			<TablaCorreos client:load />
+		</section>
 	</body>
 </html>

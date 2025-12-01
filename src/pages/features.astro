@@ -1,0 +1,95 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import FeaturesList from "../components/Features.astro"; // Reutilizamos el componente existente
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Características | Meridian Core</title>
+    </head>
+    <body class="bg-white min-h-screen flex flex-col">
+        <Navbar />
+
+        <main class="flex-1">
+            <section class="bg-slate-900 text-white py-20 px-4 text-center">
+                <h1 class="text-4xl font-extrabold mb-4">
+                    Capacidades del Núcleo
+                </h1>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+                    Una mirada profunda a la arquitectura que impulsa nuestras
+                    soluciones.
+                </p>
+            </section>
+
+            <FeaturesList />
+
+            <section class="py-20 px-4 bg-slate-50">
+                <div class="max-w-4xl mx-auto">
+                    <h2
+                        class="text-3xl font-bold text-slate-900 mb-8 text-center"
+                    >
+                        Especificaciones Técnicas
+                    </h2>
+
+                    <div
+                        class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
+                    >
+                        <table class="w-full text-left border-collapse">
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50 transition">
+                                    <th
+                                        class="py-4 px-6 font-semibold text-slate-900 w-1/3"
+                                        >Frontend Core</th
+                                    >
+                                    <td class="py-4 px-6 text-slate-600"
+                                        >Astro 5.0 + React 18 (Islands
+                                        Architecture)</td
+                                    >
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <th
+                                        class="py-4 px-6 font-semibold text-slate-900"
+                                        >Automatización</th
+                                    >
+                                    <td class="py-4 px-6 text-slate-600"
+                                        >n8n Self-Hosted (Webhook Triggers)</td
+                                    >
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <th
+                                        class="py-4 px-6 font-semibold text-slate-900"
+                                        >Base de Datos</th
+                                    >
+                                    <td class="py-4 px-6 text-slate-600"
+                                        >Google Sheets (Vía API n8n)</td
+                                    >
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <th
+                                        class="py-4 px-6 font-semibold text-slate-900"
+                                        >Estilos</th
+                                    >
+                                    <td class="py-4 px-6 text-slate-600"
+                                        >Tailwind CSS v4 (Oxide Engine)</td
+                                    >
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <th
+                                        class="py-4 px-6 font-semibold text-slate-900"
+                                        >Despliegue</th
+                                    >
+                                    <td class="py-4 px-6 text-slate-600"
+                                        >Vercel Edge Network / Netlify</td
+                                    >
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

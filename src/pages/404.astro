@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>404 - Ruta Perdida | Meridian Core</title>
+    </head>
+    <body class="bg-slate-50 min-h-screen flex flex-col font-sans">
+        <Navbar />
+
+        <main
+            class="flex-1 flex flex-col items-center justify-center text-center px-4"
+        >
+            <div class="relative">
+                <h1 class="text-9xl font-extrabold text-slate-200 select-none">
+                    404
+                </h1>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span
+                        class="text-2xl font-bold text-slate-800 bg-slate-50 px-4"
+                    >
+                        Ruta no encontrada
+                    </span>
+                </div>
+            </div>
+
+            <p class="text-slate-600 max-w-md mt-4 mb-8">
+                Parece que esta automatización falló. La página que buscas no
+                existe o fue movida.
+            </p>
+
+            <a
+                href="/"
+                class="px-6 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition flex items-center gap-2"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path><polyline points="9 22 9 12 15 12 15 22"
+                    ></polyline></svg
+                >
+                Volver al Inicio
+            </a>
+        </main>
+    </body>
+</html>

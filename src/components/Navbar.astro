@@ -1,39 +1,116 @@
 ---
 // src/components/Navbar.astro
+const navLinks = [
+    { name: "Inicio", href: "/" },
+    { name: "Características", href: "/features" },
+    { name: "Estado", href: "/status" },
+    { name: "Contacto", href: "/contact" },
+];
 ---
 
 <nav
-    class="bg-slate-900 text-white p-4 sticky top-0 z-50 border-b border-slate-800"
+    class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50"
 >
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <a
-            href="/"
-            class="text-xl font-bold flex items-center gap-2 hover:text-blue-400 transition"
-        >
-            Meridian Core
-        </a>
-        <ul class="flex gap-6 text-sm font-medium">
-            <li>
-                <a href="/" class="hover:text-blue-400 transition">Inicio</a>
-            </li>
-            <li>
-                <a href="/features" class="hover:text-blue-400 transition"
-                    >Características</a
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            {/* Logo */}
+            <a
+                href="/"
+                class="text-xl font-bold flex items-center gap-2 hover:text-blue-400 transition z-50"
+            >
+                Meridian Core
+            </a>
+
+            {/* Menú de Escritorio (Oculto en móvil) */}
+            <div class="hidden md:flex space-x-8 items-center">
+                {
+                    navLinks.map((link) => (
+                        <a
+                            href={link.href}
+                            class={`text-sm font-medium transition-colors hover:text-blue-400 
+            ${link.name === "Contacto" ? "px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white hover:text-white" : "text-slate-300"}`}
+                        >
+                            {link.name}
+                        </a>
+                    ))
+                }
+            </div>
+
+            {/* Botón Hamburguesa (Visible solo en móvil) */}
+            <button
+                id="mobile-menu-btn"
+                class="md:hidden text-slate-300 hover:text-white focus:outline-none z-50"
+                aria-label="Abrir menú"
+            >
+                <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                 >
-            </li>
-            <li>
-                <a href="/status" class="hover:text-green-400 transition"
-                    >Estado</a
-                >
-            </li>
-            <li>
+                    <path
+                        id="menu-icon"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path
+                        id="close-icon"
+                        class="hidden"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    {/* Menú Móvil (Overlay) */}
+    <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-slate-900/95 backdrop-blur-sm transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8 h-screen w-screen z-40"
+    >
+        {
+            navLinks.map((link) => (
                 <a
-                    href="/contact"
-                    class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition"
+                    href={link.href}
+                    class="text-2xl font-bold text-white hover:text-blue-400 transition-colors"
                 >
-                    Contacto
+                    {link.name}
                 </a>
-            </li>
-        </ul>
+            ))
+        }
     </div>
 </nav>
+
+<script>
+    // Lógica simple para abrir/cerrar el menú móvil
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const links = menu?.querySelectorAll("a");
+
+    if (btn && menu && menuIcon && closeIcon) {
+        btn.addEventListener("click", () => {
+            // Toggle clases
+            menu.classList.toggle("translate-x-full");
+            menuIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+
+            // Bloquear scroll del body cuando el menú está abierto
+            document.body.classList.toggle("overflow-hidden");
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        links?.forEach((link) => {
+            link.addEventListener("click", () => {
+                menu.classList.add("translate-x-full");
+                menuIcon.classList.remove("hidden");
+                closeIcon.classList.add("hidden");
+                document.body.classList.remove("overflow-hidden");
+            });
+        });
+    }
+</script>

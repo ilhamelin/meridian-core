@@ -1,71 +1,98 @@
 ---
-import "../styles/global.css";
-import Navbar from "../components/Navbar.astro";
+// src/pages/contact.astro
+import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.jsx";
 ---
 
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Contacto | Meridian Core</title>
-    </head>
-    <body class="bg-slate-50 min-h-screen flex flex-col">
-        <Navbar />
+<Layout
+    title="Contacto | Meridian Core"
+    description="Hablemos de tu próximo proyecto. Automatización de procesos, integración de n8n y desarrollo web a medida."
+>
+    <main class="flex-1 flex items-center justify-center py-12 px-4">
+        <div
+            class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        >
+            {/* Columna Izquierda: Información de Contacto */}
+            <div>
+                <h1 class="text-4xl font-extrabold text-slate-900 mb-6">
+                    Hablemos de tu próximo proyecto.
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    ¿Tienes una idea en mente o necesitas automatizar tus
+                    procesos? Estamos listos para escuchar.
+                </p>
 
-        <main class="flex-1 flex items-center justify-center py-12 px-4">
-            <div
-                class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-            >
-                <div>
-                    <h1 class="text-4xl font-extrabold text-slate-900 mb-6">
-                        Hablemos de tu próximo proyecto.
-                    </h1>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                        ¿Tienes una idea en mente o necesitas automatizar tus
-                        procesos? Estamos listos para escuchar.
-                    </p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"
+                        >
+                            {/* Icono Email */}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><rect width="20" height="16" x="2" y="4" rx="2"
+                                ></rect><path
+                                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                                ></path></svg
                             >
-                                📧
-                            </div>
-                            <div>
-                                <p class="text-sm text-slate-500 font-medium">
-                                    Email Directo
-                                </p>
-                                <p class="text-slate-900 font-bold">
-                                    contactomeridiancore@gmail.com
-                                </p>
-                            </div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600"
+                        <div>
+                            <p class="text-sm text-slate-500 font-medium">
+                                Email Directo
+                            </p>
+                            <p class="text-slate-900 font-bold">
+                                contactomeridiancore@gmail.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600"
+                        >
+                            {/* Icono Ubicación */}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path
+                                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                                ></path><circle cx="12" cy="10" r="3"
+                                ></circle></svg
                             >
-                                📍
-                            </div>
-                            <div>
-                                <p class="text-sm text-slate-500 font-medium">
-                                    Ubicación
-                                </p>
-                                <p class="text-slate-900 font-bold">
-                                    Santiago, Chile (Remoto Global)
-                                </p>
-                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-medium">
+                                Ubicación
+                            </p>
+                            <p class="text-slate-900 font-bold">
+                                Santiago, Chile (Remoto Global)
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div
-                    class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100"
-                >
-                    <ContactForm client:load />
-                </div>
             </div>
-        </main>
-    </body>
-</html>
+
+            {/* Columna Derecha: Formulario */}
+            <div
+                class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100"
+            >
+                <ContactForm client:load />
+            </div>
+        </div>
+    </main>
+</Layout>

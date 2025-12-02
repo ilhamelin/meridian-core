@@ -14,7 +14,8 @@ const {
     image = "/images/social-preview.png", // Tendrás que crear esta imagen después
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const site = Astro.site ? Astro.site.href : "https://meridiancore.dev";
+const canonicalURL = new URL(Astro.url.pathname, site);
 ---
 
 <!doctype html>

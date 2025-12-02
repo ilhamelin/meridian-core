@@ -44,7 +44,7 @@ export default function Newsletter() {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-12 p-6 bg-white rounded-xl shadow-lg border border-slate-200">
+        <div className="max-w-md mx-auto mt-1 p-6 bg-white rounded-xl shadow-lg border border-slate-200">
             <h3 className="text-lg font-bold text-slate-800 mb-2">Únete a la lista de espera</h3>
             <p className="text-slate-600 text-sm mb-4">Notifícame cuando Meridian Core esté listo.</p>
 

@@ -1,46 +1,70 @@
 ---
+// src/components/Features.astro
 const features = [
     {
-        title: "Rendimiento Rápido",
-        description:
-            "Optimizado para ofrecer la mejor velocidad y experiencia de usuario.",
         icon: "🚀",
+        title: "Rendimiento Extremo",
+        description:
+            "Arquitectura de Islas (Astro) para enviar 0kb de JS innecesario al navegador.",
     },
     {
-        title: "Seguridad Total",
+        icon: "🤖",
+        title: "Automatización Nativa",
         description:
-            "Protección avanzada para tus datos y los de tus usuarios.",
-        icon: "🔒",
+            "Flujos de n8n integrados directamente en el núcleo del sistema.",
     },
     {
-        title: "Escalabilidad",
+        icon: "📊",
+        title: "Datos en Tiempo Real",
         description:
-            "Crece sin límites con una arquitectura diseñada para el futuro.",
+            "Conexión directa a Google Sheets y APIs externas sin backend tradicional.",
+    },
+    {
+        icon: "🛡️",
+        title: "Seguridad Serverless",
+        description:
+            "Webhooks seguros y autenticación OAuth2 manejada fuera del cliente.",
+    },
+    {
+        icon: "🎨",
+        title: "Diseño Modular",
+        description: "Componentes React y Tailwind CSS v4 listos para escalar.",
+    },
+    {
         icon: "📈",
+        title: "Escalabilidad Global",
+        description:
+            "Despliegue en el borde (Edge) para latencia mínima mundial.",
     },
 ];
 ---
 
-<section class="py-20 px-6 bg-slate-50">
-    <div class="max-w-7xl mx-auto">
+<section class="py-20 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 pointer-events-none blueprint-grid">
+    </div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-slate-900 mb-4">
-                Características Principales
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">
+                El Núcleo de la Innovación
             </h2>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                Descubre todo lo que Meridian Core tiene para ofrecerte.
+            <p class="text-slate-600 max-w-2xl mx-auto">
+                Un stack tecnológico diseñado para la velocidad, la eficiencia y
+                la automatización sin fricción.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
                 features.map((feature) => (
-                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md duration-300 border border-slate-100 transition-all group/card hover:-translate-y-1">
-                        <div class="text-4xl mb-4">{feature.icon}</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover/card:text-sky-600">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition group">
+                        <div class="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                            {feature.icon}
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
                             {feature.title}
                         </h3>
-                        <p class="text-slate-600 leading-relaxed group-hover/card:text-sky-600">
+                        <p class="text-slate-600 leading-relaxed">
                             {feature.description}
                         </p>
                     </div>
@@ -49,3 +73,39 @@ const features = [
         </div>
     </div>
 </section>
+
+<style>
+    /* IMPORTANTE: Este es el CSS que genera el diseño exacto.
+    Usa los colores de tu paleta (slate-50 y slate-200 con transparencia).
+  */
+    .blueprint-grid {
+        /* Color base de fondo (slate-50) */
+        background-color: rgb(248 250 252);
+        background-image: 
+        /* Brillo central sutil */
+            radial-gradient(
+                circle at center,
+                rgb(255 255 255),
+                transparent 70%
+            ),
+            /* Líneas verticales sutiles (slate-200 con opacidad) */
+                linear-gradient(
+                    to right,
+                    rgb(226 232 240 / 0.4) 1px,
+                    transparent 1px
+                ),
+            /* Líneas horizontales sutiles (slate-200 con opacidad) */
+                linear-gradient(
+                    to bottom,
+                    rgb(226 232 240 / 0.4) 1px,
+                    transparent 1px
+                );
+        /* Tamaño de la cuadrícula */
+        background-size:
+            100% 100%,
+            40px 40px,
+            40px 40px;
+        /* Desvanecido inferior */
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+</style>

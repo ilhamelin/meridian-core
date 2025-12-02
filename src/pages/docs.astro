@@ -1,0 +1,467 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+    title="Documentación Técnica | Meridian Core"
+    description="Manifiesto técnico y guía de arquitectura de Meridian Core."
+>
+    <main class="py-12 px-6 bg-white">
+        <article class="max-w-4xl mx-auto prose prose-slate prose-lg">
+            <header class="mb-12 border-b border-slate-200 pb-8">
+                <p
+                    class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2"
+                >
+                    Versión 1.0.0 (MVP)
+                </p>
+                <h1
+                    class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4"
+                >
+                    Documentación Técnica
+                </h1>
+                <p class="text-xl text-slate-500 leading-relaxed">
+                    Explicación profunda de la arquitectura, decisiones de
+                    diseño y flujos de automatización detrás de Meridian Core.
+                </p>
+            </header>
+
+            <section class="mb-12">
+                <h2
+                    class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2"
+                >
+                    <span
+                        class="bg-slate-100 text-slate-500 w-8 h-8 rounded flex items-center justify-center text-sm"
+                        >1</span
+                    >
+                    Visión y Propósito
+                </h2>
+                <p class="text-slate-600 mb-4 leading-relaxed">
+                    Meridian Core no es una simple página web estática; es una <strong
+                        >Aplicación Web Híbrida</strong
+                    > diseñada para demostrar competencia técnica avanzada. El sistema
+                    integra un frontend de alto rendimiento con un backend de automatización
+                    "no-code/low-code".
+                </p>
+                <div
+                    class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded-r-lg"
+                >
+                    <p class="text-blue-800 text-sm font-medium">
+                        <strong>Objetivo:</strong> Crear un sistema "vivo" que capture
+                        leads, procese datos y monitoree su propia salud sin servidores
+                        tradicionales.
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2
+                    class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"
+                >
+                    <span
+                        class="bg-slate-100 text-slate-500 w-8 h-8 rounded flex items-center justify-center text-sm"
+                        >2</span
+                    >
+                    Arquitectura del Sistema
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:shadow-md transition"
+                    >
+                        <h3
+                            class="font-bold text-slate-900 mb-3 flex items-center gap-2"
+                        >
+                            🎨 Frontend (La Cara)
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 mt-1">✓</span>
+                                <span
+                                    ><strong>Astro 5.0:</strong> Renderizado estático
+                                    con islas dinámicas.</span
+                                >
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 mt-1">✓</span>
+                                <span
+                                    ><strong>React 19:</strong> Componentes interactivos
+                                    (Tablas, Forms).</span
+                                >
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 mt-1">✓</span>
+                                <span
+                                    ><strong>Tailwind CSS v4:</strong> Motor de estilos
+                                    atómico.</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:shadow-md transition bg-slate-50"
+                    >
+                        <h3
+                            class="font-bold text-slate-900 mb-3 flex items-center gap-2"
+                        >
+                            ⚙️ Backend (El Cerebro)
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-500 mt-1">✓</span>
+                                <span
+                                    ><strong>n8n:</strong> Orquestador de lógica
+                                    y webhooks.</span
+                                >
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-500 mt-1">✓</span>
+                                <span
+                                    ><strong>Google Sheets:</strong> Base de datos
+                                    relacional simple.</span
+                                >
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-500 mt-1">✓</span>
+                                <span
+                                    ><strong>Gmail API:</strong> Servidor de correo
+                                    transaccional.</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2
+                    class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"
+                >
+                    <span
+                        class="bg-slate-100 text-slate-500 w-8 h-8 rounded flex items-center justify-center text-sm"
+                        >3</span
+                    >
+                    Módulos Clave
+                </h2>
+
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">
+                            A. Panel de Control en Tiempo Real
+                        </h3>
+                        <p class="text-slate-600 mb-3 text-sm">
+                            Ubicado en <code>/index</code> y <code
+                                >src/components/TablaCorreos.jsx</code
+                            >.
+                        </p>
+                        <div
+                            class="overflow-hidden rounded-lg border border-slate-200"
+                        >
+                            <table class="min-w-full text-sm text-left">
+                                <thead
+                                    class="bg-slate-50 border-b border-slate-200"
+                                >
+                                    <tr>
+                                        <th
+                                            class="px-4 py-2 font-medium text-slate-700"
+                                            >Característica</th
+                                        >
+                                        <th
+                                            class="px-4 py-2 font-medium text-slate-700"
+                                            >Descripción Técnica</th
+                                        >
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 font-mono text-xs text-blue-600"
+                                            >Soft Refresh</td
+                                        >
+                                        <td class="px-4 py-2 text-slate-600"
+                                            >Re-fetch de datos sin recargar el
+                                            navegador.</td
+                                        >
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 font-mono text-xs text-blue-600"
+                                            >Client Filter</td
+                                        >
+                                        <td class="px-4 py-2 text-slate-600"
+                                            >Filtrado de arrays en memoria
+                                            (JavaScript) por fecha.</td
+                                        >
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 font-mono text-xs text-blue-600"
+                                            >Error Handling</td
+                                        >
+                                        <td class="px-4 py-2 text-slate-600"
+                                            >UI defensiva para fallos de
+                                            conexión con n8n.</td
+                                        >
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">
+                            B. Dashboard de Estado (Health Check)
+                        </h3>
+                        <p class="text-slate-600 mb-3 text-sm">
+                            El sistema implementa un monitor de disponibilidad
+                            en <code>/status</code>.
+                        </p>
+                        <div
+                            class="bg-slate-900 rounded-lg p-4 text-white font-mono text-xs overflow-x-auto"
+                        >
+                            <div
+                                class="flex justify-between border-b border-slate-700 pb-2 mb-2"
+                            >
+                                <span class="text-slate-400"
+                                    >response.json structure</span
+                                >
+                                <span class="text-green-400">JSON</span>
+                            </div>
+                            <div
+                                class="bg-slate-900 rounded-lg p-4 text-white font-mono text-xs overflow-x-auto"
+                            >
+                                <div
+                                    class="flex justify-between border-b border-slate-700 pb-2 mb-2"
+                                >
+                                    <span class="text-slate-400"
+                                        >response.json structure</span
+                                    >
+                                    <span class="text-green-400">JSON</span>
+                                </div>
+
+                                <pre>{`{
+  "status": "operational",
+  "services": [
+    { "name": "Base de Datos", "latency": "120ms" },
+    { "name": "API Gateway", "latency": "45ms" }
+  ]
+}`}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">
+                            C. Panel de Control (TablaCorreos)
+                        </h3>
+                        <p class="text-slate-600 mb-3 text-sm">
+                            Visualización de datos en tiempo real con <em
+                                >Soft Refresh</em
+                            > y filtrado en cliente.
+                        </p>
+                        <div
+                            class="overflow-hidden rounded-lg border border-slate-200"
+                        >
+                            <table class="min-w-full text-sm text-left">
+                                <thead
+                                    class="bg-slate-50 border-b border-slate-200"
+                                >
+                                    <tr
+                                        ><th class="px-4 py-2">Feature</th><th
+                                            class="px-4 py-2">Detalle</th
+                                        ></tr
+                                    >
+                                </thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr
+                                        ><td
+                                            class="px-4 py-2 font-mono text-blue-600"
+                                            >Smart Filter</td
+                                        ><td class="px-4 py-2"
+                                            >Filtra arrays JS por fecha sin
+                                            recargar.</td
+                                        ></tr
+                                    >
+                                    <tr
+                                        ><td
+                                            class="px-4 py-2 font-mono text-blue-600"
+                                            >Error UI</td
+                                        ><td class="px-4 py-2"
+                                            >Manejo defensivo de fallos de API.</td
+                                        ></tr
+                                    >
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">
+                            D. Monitor de Estado (Status Page)
+                        </h3>
+                        <p class="text-slate-600 mb-3 text-sm">
+                            Sistema de observabilidad que verifica la salud de
+                            los webhooks.
+                        </p>
+                        <ul class="list-disc pl-5 text-sm text-slate-600">
+                            <li>
+                                <strong>Modo Manual/Auto:</strong> Switch para activar
+                                <em>polling</em> cada 5s.
+                            </li>
+                            <li>
+                                <strong>Latencia Simulada:</strong> Algoritmo para
+                                mostrar métricas realistas.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">
+                            E. Captación (Newsletter & Contacto)
+                        </h3>
+                        <p class="text-slate-600 mb-3 text-sm">
+                            Dos flujos diferenciados para la gestión de leads.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-3 rounded border">
+                                <span class="font-bold block text-xs mb-1"
+                                    >NEWSLETTER</span
+                                >
+                                <span class="text-xs"
+                                    >Webhook -> Sheets -> Email Bienvenida
+                                    (Usuario)</span
+                                >
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded border">
+                                <span class="font-bold block text-xs mb-1"
+                                    >CONTACTO</span
+                                >
+                                <span class="text-xs"
+                                    >Webhook -> Sheets -> Alerta Admin (Tú)</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">
+                            F. Portafolio Interactivo (TechShowcase)
+                        </h3>
+                        <p class="text-slate-600 mb-3 text-sm">
+                            Componente diseñado para exhibir competencia técnica
+                            mediante la inspección de código.
+                        </p>
+                        <ul class="list-disc pl-5 text-sm text-slate-600">
+                            <li>
+                                <strong>Modales Nativos:</strong> Uso de la etiqueta
+                                <code>&lt;dialog&gt;</code> para rendimiento.
+                            </li>
+                            <li>
+                                <strong>Syntax Highlight:</strong> Bloques de código
+                                pre-formateados.
+                            </li>
+                            <li>
+                                <strong>Doble Enlace:</strong> Botones para "Ver
+                                Repo" y "Ver Snippet".
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-4 border-orange-500 pl-4">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">
+                            G. Agente de IA para Gmail (Backend)
+                        </h3>
+                        <p class="text-slate-600 mb-3 text-sm">
+                            Flujo autónomo en n8n que gestiona tu bandeja de
+                            entrada personal.
+                        </p>
+                        <div
+                            class="bg-slate-900 text-slate-300 p-4 rounded-lg text-xs font-mono"
+                        >
+                            1. Trigger: Cada día a las 17:00<br />
+                            2. Acción: Leer correos no leídos<br />
+                            3. IA (Gemini): Clasificar en [TRABAJO, URGENTE, INFO]<br
+                            />
+                            4. If URGENTE -> Enviar Telegram 🚨<br />
+                            5. If REUNION -> Agendar en Google Calendar 📅<br />
+                            6. Final: Guardar resumen en Sheets.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2
+                    class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"
+                >
+                    <span
+                        class="bg-slate-100 text-slate-500 w-8 h-8 rounded flex items-center justify-center text-sm"
+                        >4</span
+                    >
+                    Estructura del Proyecto
+                </h2>
+                <pre
+                    class="bg-slate-50 p-4 rounded-lg text-xs font-mono border border-slate-200 text-slate-700 leading-relaxed">
+src/
+├── components/
+│   ├── ContactForm.jsx    (React: Lógica de formulario)
+│   ├── Navbar.astro       (Astro: Menú responsivo)
+│   ├── Newsletter.jsx     (React: Captación leads)
+│   ├── TablaCorreos.jsx   (React: Dashboard real-time)
+│   └── TechShowcase.astro (Astro: Portafolio modal)
+├── layouts/
+│   └── Layout.astro       (Master template + SEO)
+├── pages/
+│   ├── 404.astro          (Página de error personalizada)
+│   ├── contact.astro      (Página contacto)
+│   ├── docs.astro         (Esta documentación)
+│   ├── features.astro     (Detalle técnico)
+│   ├── index.astro        (Landing page / Funnel)
+│   └── status.astro       (Monitor de sistema)
+└── styles/
+    └── global.css         (Tailwind imports + Grid patterns)
+                </pre>
+            </section>
+
+            <section class="mb-12">
+                <h2
+                    class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2"
+                >
+                    <span
+                        class="bg-slate-100 text-slate-500 w-8 h-8 rounded flex items-center justify-center text-sm"
+                        >4</span
+                    >
+                    Guía de Despliegue
+                </h2>
+                <div class="space-y-4">
+                    <div
+                        class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200"
+                    >
+                        <code
+                            class="bg-white px-2 py-1 rounded border border-slate-200 text-pink-600 font-mono text-sm"
+                            >npm run dev</code
+                        >
+                        <span class="text-sm text-slate-600"
+                            >Inicia el servidor local en puerto 4321.</span
+                        >
+                    </div>
+                    <div
+                        class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200"
+                    >
+                        <code
+                            class="bg-white px-2 py-1 rounded border border-slate-200 text-pink-600 font-mono text-sm"
+                            >npx untun@latest tunnel ...</code
+                        >
+                        <span class="text-sm text-slate-600"
+                            >Crea un túnel público temporal (Cloudflare).</span
+                        >
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+</Layout>
